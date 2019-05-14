@@ -1,0 +1,11 @@
+@echo off
+cls
+
+echo Demo script
+echo RunTool.cmd - GSolone 2019
+echo https://github.com/gioxx/RunTool
+echo.
+
+echo Hello World!
+echo Premi un tasto per terminare lo script di test.
+pause > NUL
