@@ -1,0 +1,18 @@
+@echo off
+cls
+echo Reset CBS and Windows Temp
+echo.
+sc stop wuauserv
+ping 127.0.0.1 -n 7 > NUL
+cd \Windows\
+move SoftwareDistribution SoftwareDistribution_old
+del /S C:\Windows\Temp\* /Q
+FOR /D %%p IN ("C:\Windows\Temp\*.*") DO rmdir "%%p" /s /q
+sc start wuauserv
+rd /S /Q C:\Windows\SoftwareDistribution_old
+sc stop TrustedInstaller
+ping 127.0.0.1 -n 7 > NUL
+del /S C:\Windows\Logs\CBS* /Q
+sc start TrustedInstaller
+ping 127.0.0.1 -n 5 > NUL
+wuauclt.exe /detectnow
