@@ -1,7 +1,11 @@
 @echo off
 cls
+
 echo Reset CBS and Windows Temp
+echo RunTool.cmd - GSolone 2019
+echo https://github.com/gioxx/RunTool
 echo.
+
 sc stop wuauserv
 ping 127.0.0.1 -n 7 > NUL
 cd \Windows\
